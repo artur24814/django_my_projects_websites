@@ -1,0 +1,40 @@
+{% extends "films/base.html" %}
+
+{% block title %} Hall {{ hall.title }} {% endblock %}
+
+{% block content %}
+
+<div style="display: inline-block;">
+{% for instance in object_list %}
+
+<!--<div class="card" style="width: 18rem; ">-->
+<!--  <img src="{{ instance.image.url }}" class="card-img-top" alt="...">-->
+<!--  <div class="card-body">-->
+<!--    <h5 class="card-title">{{ instance.title }}</h5>-->
+<!--    <p class="card-text">{{ instance.description }}</p>-->
+<!--  </div>-->
+<!--  <ul class="list-group list-group-flush">-->
+<!--    <li class="list-group-item">{{ instance.in_cinema }}</li>-->
+<!--  </ul>-->
+
+<!--</div>-->
+
+<div class="card mb-3" style="max-width: 540px; height: 500px; display: inline-block; overflow-y: auto ">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="{{ instance.image.url }}" class="img-fluid rounded-start" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">{{ instance.title }}</h5>
+        <p class="card-text" ">{{ instance.description }}</p>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">{{ instance.in_cinema }}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+{% endfor %}
+</div>
+{% endblock %}

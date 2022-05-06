@@ -1,0 +1,19 @@
+{% extends "films/base.html" %}
+
+{% block title %}ALL HALL {% endblock %}
+
+{% block content %}
+
+{% for instance in object_list %}
+<div class="card">
+  <h5 class="card-header">{{ instance.title }}</h5>
+  <div class="card-body">
+    <h5 class="card-title">{{ instance.film }}</h5>
+    <p class="card-text">in cinema {{ instance.film.in_cinema }}</p>
+    <a href="{{ instance.get_url }}" class="btn btn-primary">Watch this Hall</a>
+  </div>
+</div><br>
+
+{% endfor %}
+
+{% endblock %}

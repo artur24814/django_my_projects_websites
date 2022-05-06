@@ -1,0 +1,42 @@
+{% extends "films/base.html" %}
+
+{% block title %} Hall {{ hall.title }} {% endblock %}
+
+  {% block content %}
+<h1>{{ hall.film }}</h1>
+<p>{{ time }}</p>
+
+<!--{% if message %}-->
+<!--<p>{{ message }}</p>-->
+<!--{% endif %}-->
+{% for item in rowcolums %}
+
+<style>
+  #{{ item }} {
+  background : red;
+}
+</style>
+{% endfor %}
+
+<table class="table dark">
+  <thead>
+    <tr>
+      <th scope="col"> # </th>
+      <th scope="col"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      {% for row in rows %}
+      <th scope="row">{{ row }}</th>
+          {% for colum in columns %}
+      <td  id="{{row}}{{colum}}">
+        <a href="/reserve_ticket/{{row}}{{colum}}/{{ screening_id }}/{{ time }}/"><button class="btn btn-secondary btn-lg">{{ colum }}</button></a></td>
+      {% endfor %}
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+
+ {% endblock %}

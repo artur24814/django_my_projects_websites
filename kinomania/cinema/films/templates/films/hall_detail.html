@@ -1,0 +1,21 @@
+{% extends "films/base.html" %}
+
+{% block title %}Hall {{ hall.title }}{% endblock %}
+
+{% block content %}
+
+<div class="card">
+  <h5 class="card-header">{{ hall.title }}</h5>
+  <div class="card-body">
+    <h5 class="card-title">{{ hall.film }}</h5>
+    <p class="card-text">{{ hall.film.description }}</p>
+      {% for time in show %}
+    <a href="{{ time.get_url }}" class="btn btn-primary">{{ time.time }}</a>
+      {% endfor %}
+  </div>
+</div>
+
+
+
+
+{% endblock %}

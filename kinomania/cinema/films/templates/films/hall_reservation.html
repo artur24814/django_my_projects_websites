@@ -1,0 +1,13 @@
+{% extends "films/base.html" %}
+
+{% block title %}halls reservation{% endblock %}
+
+{% block content %}
+<div class="form_group">
+   <form method="post" > {% csrf_token %}
+           {{ form.as_p }}
+      <input type="submit" value="Reserve">
+
+   </form>
+</div>
+{% endblock %}

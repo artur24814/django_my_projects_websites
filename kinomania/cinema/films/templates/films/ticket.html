@@ -1,0 +1,26 @@
+{% extends "films/base.html" %}
+
+{% block title %} Hall {{ hall.title }} {% endblock %}
+
+{% block content %}
+
+
+<h1>Your movie ticket for a movie "{{ tiket.film }}"</h1>
+
+<div class="card text-center">
+  <div class="card-header">
+   {{ tiket.film }}
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">{{ tiket.hall.title }} {{ tiket.time }}</h5>
+    <p class="card-text">Your place is row: "{{ tiket.row }}" column: "{{ tiket.columns }}"</p>
+    <a href="/" class="btn btn-primary">Go somewhere</a>
+  </div>
+  <div class="card-footer text-muted">
+    2 days ago
+  </div>
+</div>
+
+
+
+{% endblock %}
