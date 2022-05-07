@@ -2,6 +2,7 @@ from django.shortcuts import render,get_object_or_404,redirect
 from django.views import View
 from django.views.generic import ListView
 from .models import Film, Hall, Screening, Ticket
+from django.contrib.auth.decorators import login_required
 import datetime
 
 columns = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
@@ -70,6 +71,7 @@ class ReserveTicket(View):
         context = {
             'ticket': ticket
         }
+        ticket.customer = request.user
         ticket.save()
         return render(request, 'films/ticket.html', context)
         # except Exception:
@@ -78,3 +80,13 @@ class ReserveTicket(View):
 class ErrorView(View):
     def get(self,request):
         return render(request, 'films/Error.html')
+
+@login_required
+def UserTicket(request):
+    if request.method == "GET":
+        queryset = Ticket.objects.filter(customer=request.user)
+        context = {
+            'ticket': queryset
+        }
+        return render(request,'films/your_ticket.html', context)
+

@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from django.views import View
 from django.contrib.auth import login, logout, authenticate
+
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 
 class LoginView(View):
@@ -38,6 +39,8 @@ class LogoutViews(View):
     def post(self,request):
         logout(request)
         return redirect('/login/')
+
+
 
 
 

@@ -5,14 +5,14 @@
 {% block content %}
 
 
-<h1>Your movie ticket for a movie "{{ tiket.film }}"</h1>
+<h1>Your movie ticket for a movie "{{ ticket.screening.film }}"</h1>
 
 <div class="card text-center">
   <div class="card-header">
-   {{ tiket.film }}
+   {{ tiket.screening.film }}
   </div>
   <div class="card-body">
-    <h5 class="card-title">{{ tiket.hall.title }} {{ tiket.time }}</h5>
+    <h5 class="card-title">{{ tiket.screening.hall.title }} {{ tiket.screening.time }}</h5>
     <p class="card-text">Your place is row: "{{ tiket.row }}" column: "{{ tiket.columns }}"</p>
     <a href="/" class="btn btn-primary">Go somewhere</a>
   </div>

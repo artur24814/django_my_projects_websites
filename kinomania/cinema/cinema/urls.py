@@ -33,5 +33,6 @@ urlpatterns = [
     path('all-hall/', views.AllHall.as_view()),
     path('hall/<int:id>/', views.HallDetail.as_view()),
     path('<int:id>/<str:hall>/<str:time>/', views.HallView.as_view()),
-    path('reserve_ticket/<str:rowcolums>/<int:id>/<str:time>/', views.ReserveTicket.as_view())
+    path('reserve_ticket/<str:rowcolums>/<int:id>/<str:time>/', views.ReserveTicket.as_view()),
+    path('your-ticket/', views.UserTicket),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,5 +1,6 @@
 from django.db import models
 from django.shortcuts import redirect
+from django.contrib.auth.models import User
 
 columns = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 rows = ['a', 'b', 'c', 'd','e']
@@ -48,10 +49,12 @@ class Screening(models.Model):
 class Ticket(models.Model):
     screening = models.ForeignKey('Screening', on_delete=models.CASCADE)
     rowcolums = models.CharField(max_length=64)
+    customer = models.ForeignKey(User,on_delete=models.CASCADE, default=1)
+    data = models.DateField(auto_now_add=True, null=True)
 
     def save(self, *args, **kwargs):
         if self.rowcolums in rowcolums_set:
-            super().save(*args,**kwargs)
+            super().save(*args, **kwargs)
         else:
             return redirect("/Error/")
 

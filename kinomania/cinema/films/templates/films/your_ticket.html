@@ -1,0 +1,27 @@
+{% extends "films/base.html" %}
+
+{% block title %} Hall {{ hall.title }} {% endblock %}
+
+{% block content %}
+<h1>Your ticket </h1>
+    {% for instance in ticket %}
+
+
+
+<div class="card text-center">
+  <div class="card-header">
+   {{ instance.screening.film }}
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">{{ instance.screening.hall }} {{ instance.screening.time }}</h5>
+    <p class="card-text">Your place: "{{ instance.rowcolums }}"</p>
+  </div>
+  <div class="card-footer text-muted">
+    {{ instance.data }}
+  </div>
+</div><br/>
+    {% endfor %}
+
+
+
+{% endblock %}
