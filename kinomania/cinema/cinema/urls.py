@@ -26,6 +26,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('Error/', views.ErrorView.as_view()),
     path('', views.Home.as_view()),
+    path('search/', views.SearchView.as_view()),
     path('login/', LoginView.as_view()),
     path('logout/', LogoutViews.as_view()),
     path('register/', RegiseredViews.as_view()),
@@ -35,4 +36,5 @@ urlpatterns = [
     path('<int:id>/<str:hall>/<str:time>/', views.HallView.as_view()),
     path('reserve_ticket/<str:rowcolums>/<int:id>/<str:time>/', views.ReserveTicket.as_view()),
     path('your-ticket/', views.UserTicket),
+    path('delete-ticket/<int:id>/', views.DeleteTicket),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

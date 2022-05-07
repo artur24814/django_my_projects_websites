@@ -44,13 +44,16 @@ class Screening(models.Model):
         super().save(*args,**kwargs)
 
     def __str__(self):
-        return self.film
+        return self.film.title
 
 class Ticket(models.Model):
     screening = models.ForeignKey('Screening', on_delete=models.CASCADE)
     rowcolums = models.CharField(max_length=64)
     customer = models.ForeignKey(User,on_delete=models.CASCADE, default=1)
     data = models.DateField(auto_now_add=True, null=True)
+
+    def get_delete_url(self):
+        return f'/delete-ticket/{self.id}/'
 
     def save(self, *args, **kwargs):
         if self.rowcolums in rowcolums_set:

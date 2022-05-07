@@ -1,0 +1,27 @@
+{% extends 'films/base.html' %}
+
+{% block title %}SEARCH{% endblock %}
+
+   {% block content %}
+       <center>
+           <h1>You serched for "{{ question }}"</h1>
+       <hr>
+       </center>
+   {% if films %}
+{% for film in films %}
+    <div class="card w-75">
+       <div class="card-body">
+        <h5 class="card-title">{{ film }}</h5>
+           {% endfor %}
+        <p class="card-text">this film you can watch at {{ hall }}</p>
+        <a href="{{ hall.get_url }}" class="btn btn-primary">Watch Hall</a>
+      </div>
+    </div>
+
+   {% else %}
+       <p> no results.....</p>
+   {% endif %}
+
+
+
+    {% endblock %}

@@ -10,10 +10,10 @@
           <a class="nav-link active" aria-current="page" href="/">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/all-films/">All FILMS</a>
+          <a class="nav-link" href="/all-films/">Films</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/all-hall/">All Hall</a>
+          <a class="nav-link" href="/all-hall/">Hall</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -27,8 +27,8 @@
           </ul>
         </li>
       </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      <form action="/search/" method="post" class="d-flex">{% csrf_token %}
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="question">
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
         {% if not request.user.is_authenticated %}

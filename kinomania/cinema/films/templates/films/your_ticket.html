@@ -4,6 +4,8 @@
 
 {% block content %}
 <h1>Your ticket </h1>
+
+
     {% for instance in ticket %}
 
 
@@ -15,6 +17,7 @@
   <div class="card-body">
     <h5 class="card-title">{{ instance.screening.hall }} {{ instance.screening.time }}</h5>
     <p class="card-text">Your place: "{{ instance.rowcolums }}"</p>
+      <a href="{{ instance.get_delete_url }}" class="btn btn-primary">Delete Ticket</a>
   </div>
   <div class="card-footer text-muted">
     {{ instance.data }}
