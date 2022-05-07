@@ -1,0 +1,16 @@
+{% extends "films/base.html" %}
+
+{% block title %} LOGOUT {% endblock %}
+
+{% block content %}
+   {% if request.user.is_authenticated %}
+    <div class="logout"></div>
+    <form method="post">{% csrf_token %}
+        <p> {{ user }}, A you sure want to logout ? </p>
+        <button type="submit" class="btn btn-danger"> Yes </button>      <a href="/../../" class="btn btn-secondary">Cancel</a>
+    </form>
+    </div>
+    {% else %}
+    <p>You're not logged in <a href="/login/">Login</a> </p>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "films/base.html" %}
+
+{% block title %} REGISTER {% endblock %}
+
+{% block content %}
+{% if not request.user.is_authenticated %}
+<form method="post">{% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Register" class="btn btn-success"><br>
+
+</form>
+{% else %}
+<p>Your alredy login, a you want to <button><a href='/logout/'>LOGOUT</a></button>?</p>
+{% endif %}
+
+{% endblock %}

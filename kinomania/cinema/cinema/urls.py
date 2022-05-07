@@ -20,11 +20,15 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 from films import views
+from accounts.views import LoginView, RegiseredViews, LogoutViews
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('Error/', views.ErrorView.as_view()),
     path('', views.Home.as_view()),
+    path('login/', LoginView.as_view()),
+    path('logout/', LogoutViews.as_view()),
+    path('register/', RegiseredViews.as_view()),
     path('all-films/', views.AllFilms.as_view()),
     path('all-hall/', views.AllHall.as_view()),
     path('hall/<int:id>/', views.HallDetail.as_view()),
