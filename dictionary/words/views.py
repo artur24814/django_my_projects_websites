@@ -11,7 +11,7 @@ from django.http import JsonResponse
 #Translating app
 import deepl
 
-auth_key = "5c956ed3-f892-e7ad-470d-d8010548f352:fx"
+auth_key = "key"
 translator = deepl.Translator(auth_key)
 
 def is_ajax(request):
