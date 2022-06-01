@@ -1,0 +1,24 @@
+{% extends 'words/base.html' %}
+
+{% block title %}Dictionar{% endblock title %}
+
+
+{% block content %}
+    {%  load static %}
+    <img src="{% static 'ksiazki.jpeg' %}" height="300" width="1900"/>
+    <hr>
+
+ {% for instance in object_list %}
+     <center>
+<div class="card w-75">
+  <div class="card-body">
+    <h5 class="card-title">{{ instance.word }}</h5>
+    <p class="card-text"><p> {{ instance.definition }}</p></p>
+  </div>
+</div>
+</center>
+
+
+ {% endfor %}
+
+{% endblock content %}

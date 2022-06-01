@@ -1,0 +1,39 @@
+{% extends 'words/base.html' %}
+
+{% block title %}Home{% endblock title %}
+
+
+{% block content %}
+    {%  load static %}
+    <img src="{{ 'static/pan.jpg' }}" height="300" width="1900">
+    <hr>
+    <center><h1 class="title"> Coś tam </h1></center>
+
+    <div class="container">
+        {% if message %}
+    {{ message }}
+    {% endif %}
+       <div class="row justify-content-center">
+         <div class="col-7 text-center mt-5">
+           <form class="myform">
+             <div class="mb-3">
+                   <label for="" class="form-label">Translate</label>
+                   <input type="text" class="form-control" id="text">
+             </div>
+
+                  <button type="button" class="btn btn-success btn-lg">Translate</button>
+               <hr><br>
+           </form>
+               <div id="translated" >
+                   {% csrf_token %}
+               </div>
+
+
+         </div>
+       </div>
+    </div>
+{% endblock content %}
+  {% load static %}
+  {% block javascript %}
+     <script src="{% static 'main.js' %}"></script>
+  {% endblock javascript %}

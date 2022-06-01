@@ -1,0 +1,161 @@
+{% extends 'words/base.html' %}
+
+{% block title %}cardGame{% endblock title %}
+
+
+{% block content %}
+    <div class="main-block">
+
+      <section>
+          <div class="card">
+              <div class="word">
+          {{ list1.definition }}
+              </div>
+              <div class="definition">
+          {{ list1.word }}
+              </div>
+          </div>
+
+          <div class="card">
+              <div class="word">
+          {{ list2.definition }}
+              </div>
+              <div class="definition">
+          {{ list2.word }}
+              </div>
+          </div>
+
+          <div class="card">
+              <div class="word">
+          {{ list3.definition }}
+              </div>
+              <div class="definition">
+          {{ list3.word }}
+              </div>
+          </div>
+
+          <div class="card">
+              <div class="word">
+          {{ list4.definition }}
+              </div>
+              <div class="definition">
+          {{ list4.word }}
+              </div>
+          </div>
+
+          <div class="card">
+              <div class="word">
+          {{ list5.definition }}
+              </div>
+              <div class="definition">
+          {{ list5.word }}
+              </div>
+          </div>
+
+          <div class="card">
+              <div class="word">
+          {{ list6.definition }}
+              </div>
+              <div class="definition">
+          {{ list6.word }}
+              </div>
+          </div>
+
+          <div class="card">
+              <div class="word">
+          {{ list7.definition }}
+              </div>
+              <div class="definition">
+          {{ list7.word }}
+              </div>
+          </div>
+
+          <div class="card">
+              <div class="word">
+          {{ list8.definition }}
+              </div>
+              <div class="definition">
+          {{ list8.word }}
+              </div>
+          </div>
+
+          <div class="card">
+              <div class="word">
+          {{ list9.definition }}
+              </div>
+              <div class="definition">
+          {{ list9.word }}
+              </div>
+          </div>
+
+          <div class="card">
+              <div class="word">
+          {{ list10.definition }}
+              </div>
+              <div class="definition">
+          {{ list10.word }}
+              </div>
+          </div>
+
+          <div class="card">
+              <div class="word">
+          {{ list11.definition }}
+              </div>
+              <div class="definition">
+          {{ list11.word }}
+              </div>
+          </div>
+
+          <div class="card">
+              <div class="word">
+          {{ list12.definition }}
+              </div>
+              <div class="definition">
+          {{ list12.word }}
+              </div>
+          </div>
+
+          <div class="card">
+              <div class="word">
+          {{ list13.definition }}
+              </div>
+              <div class="definition">
+          {{ list13.word }}
+              </div>
+          </div>
+
+          <div class="card">
+              <div class="word">
+          {{ list14.definition }}
+              </div>
+              <div class="definition">
+          {{ list14.word }}
+              </div>
+          </div>
+
+          <div class="card">
+              <div class="word">
+          {{ list15.definition }}
+              </div>
+              <div class="definition">
+          {{ list15.word }}
+              </div>
+          </div>
+
+          <div class="card">
+              <div class="word">
+          {{ list16.definition }}
+              </div>
+              <div class="definition">
+          {{ list16.word }}
+              </div>
+          </div>
+
+      </section>
+
+    </div>
+{% endblock content %}
+  {% load static %}
+  {% block javascript %}
+     <script src="{% static 'cardGame.js' %}"></script>
+  {% endblock javascript %}
