@@ -9,8 +9,9 @@ After the date on which the tickets were booked they will be deleted from the da
 <p>Website for looking translation of words and create your self vocabulary and train your knowledge in a card game</p>
   
   <p>On the main page, you can translate the words and dynamically receiving the result you can add to the dictionary this translation of what we need.
-    ![1](https://user-images.githubusercontent.com/97242088/172049014-6a661272-8886-49bd-abc0-5f7cd2701c46.png)
+    ![1 1](https://user-images.githubusercontent.com/97242088/172054255-802cbfd1-c727-4a56-a040-526e2a796985.png)
 </p> 
+
     <p>On the page we have two dictionaries - one general and the other personal for each user. In a personal dictionary there will be words that user ![2](https://user-images.githubusercontent.com/97242088/172049030-2d4ce8f1-d635-426d-8635-d375aec4d63d.png)
       ![3](https://user-images.githubusercontent.com/97242088/172049065-e88a2e30-827d-4ebb-b000-4c485699d30a.png)
 
