@@ -1,0 +1,22 @@
+{% extends 'words/base.html' %}
+
+{% block title %}LOGIN{% endblock title %}
+
+
+{% block content %}
+    {%  load static %}
+    <img src="{% static 'pan.jpg' %}" height="300" width="1900">
+    <hr>
+    {% if not request.user.is_authenticated %}
+    <form method="post"> {% csrf_token %}
+        {{ form.as_p }}
+    <button class="btn btn-success" type="submit">Login</button>
+    </form>
+        <p>If you haven't an account please create new account</p>
+        <p><a href="/register/"><button class="btn btn-secondary">Create New Account</button></a> </p>
+    {% else %}
+    <h3>{{ user.username }}, you alredy loggein!</h3>
+        <p>Are you want <a href="/logout/"><button class="btn btn-danger"> LOGOUT</button></a></p>
+    {% endif %}
+
+{% endblock content %}

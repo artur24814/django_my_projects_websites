@@ -1,0 +1,17 @@
+{% extends 'words/base.html' %}
+
+{% block title %}Dictionary{% endblock title %}
+
+
+{% block content %}
+    {%  load static %}
+    <img src="{% static 'ksiazki.jpeg' %}" height="300" width="1900"/>
+    <hr>
+    <form method="post">{% csrf_token %}
+        {{ form.as_p }}
+    <button type="submit" class="btn btn-success">update</button>
+    </form>
+
+
+
+{% endblock content %}

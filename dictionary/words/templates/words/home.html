@@ -5,9 +5,9 @@
 
 {% block content %}
     {%  load static %}
-    <img src="{{ 'static/pan.jpg' }}" height="300" width="1900">
+    <img src="{%  static 'pan.jpg' %}" height="300" width="1900">
     <hr>
-    <center><h1 class="title"> Coś tam </h1></center>
+    <center><h1 class="title"> Search word </h1></center>
 
     <div class="container">
         {% if message %}

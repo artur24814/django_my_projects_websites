@@ -1,0 +1,34 @@
+{% extends 'words/base.html' %}
+
+{% block title %}Dictionary{% endblock title %}
+
+
+{% block content %}
+    {%  load static %}
+    <img src="{% static 'ksiazki.jpeg' %}" height="300" width="1900"/>
+    <hr>
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+             <strong>{{ message }}</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {% endfor %}
+    {% endif %}
+ {% for instance in object_list %}
+     <center>
+<div class="card w-75">
+  <div class="card-body">
+    <h5 class="card-title">{{ instance.word }}</h5>
+    <p class="card-text"> {{ instance.definition }}</p>
+      <p><a href="{{ instance.get_absolute_url }}"><button class="btn btn-secondary">Change this word</button></a>
+
+      <a href="{{ instance.get_absolute_url }}delete/"><button class="btn btn-danger">Delete this word from your dictionary</button></a></p>
+  </div>
+</div>
+</center>
+
+
+ {% endfor %}
+
+{% endblock content %}

@@ -12,4 +12,7 @@ class Words(models.Model):
         self.alphabet = self.word[0]
         super().save(*args, **kwargs)
 
+    def get_absolute_url(self):
+        return f'/update_word/{self.id}/'
+
 
