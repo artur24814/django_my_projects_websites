@@ -8,9 +8,11 @@ After the date on which the tickets were booked they will be deleted from the da
 <li><srtong><h1>DICTIONARY</h1></srtong></li>
 <p>Website for looking translation of words and create your self vocabulary and train your knowledge in a card game</p>
   
-  <p>On the main page, you can translate the words and dynamically receiving the result you can add to the dictionary this translation of what we need.<![1](https://user-images.githubusercontent.com/97242088/172049014-6a661272-8886-49bd-abc0-5f7cd2701c46.png)
-/p> 
-    <p>On the page we have two dictionaries - one general and the other personal for each user. In a personal dictionary there will be words that user ![2](https://user-images.githubusercontent.com/97242088/172049030-2d4ce8f1-d635-426d-8635-d375aec4d63d.png)![3](https://user-images.githubusercontent.com/97242088/172049065-e88a2e30-827d-4ebb-b000-4c485699d30a.png)
+  <p>On the main page, you can translate the words and dynamically receiving the result you can add to the dictionary this translation of what we need.
+    ![1](https://user-images.githubusercontent.com/97242088/172049014-6a661272-8886-49bd-abc0-5f7cd2701c46.png)
+</p> 
+    <p>On the page we have two dictionaries - one general and the other personal for each user. In a personal dictionary there will be words that user ![2](https://user-images.githubusercontent.com/97242088/172049030-2d4ce8f1-d635-426d-8635-d375aec4d63d.png)
+      ![3](https://user-images.githubusercontent.com/97242088/172049065-e88a2e30-827d-4ebb-b000-4c485699d30a.png)
 
 added personally (you can add words only when you are logged in). You can change or delete your own words.</p>
     <p>Also we have two options card game, you can play with all the words, or you can  play with the words of a specific user (but when you have in the 
