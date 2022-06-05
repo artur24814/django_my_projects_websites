@@ -7,7 +7,13 @@
 After the date on which the tickets were booked they will be deleted from the database. Also, if the room was not booked by the administrator and it is free on that date, the user can book the whole room by himself. </p><hr>
 <li><srtong><h1>DICTIONARY</h1></srtong></li>
 <p>Website for looking translation of words and create your self vocabulary and train your knowledge in a card game</p>
-  <p>On the main page, you can translate the words and dynamically receiving the result you can add to the dictionary this translation of what we need.</p> 
-    <p>On the page we have two dictionaries - one general and the other personal for each user. In a personal dictionary there will be words that user added personally (you can add words only when you are logged in). You can change or delete your own words.</p>
-    <p>Also we have two options card game, you can play with all the words, or you can  play with the words of a specific user (but when you have in the dictionary more than 16 words). The game is that on one side of the card you have a word, and on the back you have definitions, when you click on the card it turns and you can preview the translation</p><hr>
+  
+  <p>On the main page, you can translate the words and dynamically receiving the result you can add to the dictionary this translation of what we need.<![1](https://user-images.githubusercontent.com/97242088/172049014-6a661272-8886-49bd-abc0-5f7cd2701c46.png)
+/p> 
+    <p>On the page we have two dictionaries - one general and the other personal for each user. In a personal dictionary there will be words that user ![2](https://user-images.githubusercontent.com/97242088/172049030-2d4ce8f1-d635-426d-8635-d375aec4d63d.png)![3](https://user-images.githubusercontent.com/97242088/172049065-e88a2e30-827d-4ebb-b000-4c485699d30a.png)
+
+added personally (you can add words only when you are logged in). You can change or delete your own words.</p>
+    <p>Also we have two options card game, you can play with all the words, or you can  play with the words of a specific user (but when you have in the 
+dictionary more than 16 words). The game is that on one side of the card you have a word, and on the back you have definitions, when you click on the card it turns and you can preview the translation
+  ![4](https://user-images.githubusercontent.com/97242088/172049037-f39daae3-32ca-401e-9029-2b2410f36376.png)</p><hr>
  </ul>
