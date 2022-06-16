@@ -15,7 +15,7 @@
             <a class="nav-link active" aria-current="page" href="/dictionary">dictionary</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/card-game/">Card Game</a>
+            <a class="nav-link active" href="/card-game/">Card Game</a>
           </li>
             {% if not request.user.is_authenticated %}
                 <li class="nav-item">
@@ -28,6 +28,7 @@
             </a>
             <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
               <li><a class="dropdown-item" href="/user-dictionary/">Your own dictionary</a></li>
+                <li><a class="dropdown-item" href="/frasses/">write text with random words</a></li>
               <li><a class="dropdown-item" href="/user-card-game/">Your own Card game</a></li>
               <li>
                 <hr class="dropdown-divider">

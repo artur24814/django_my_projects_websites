@@ -15,4 +15,11 @@ class Words(models.Model):
     def get_absolute_url(self):
         return f'/update_word/{self.id}/'
 
+class TextWithWord(models.Model):
+    word = models.ForeignKey('Words', on_delete=models.SET_NULL, null=True)
+    text = models.TextField()
+    author = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    create = models.DateField(auto_now_add=True)
+    updated = models.DateField(auto_now=True)
+
 

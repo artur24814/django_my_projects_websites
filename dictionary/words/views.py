@@ -4,18 +4,20 @@ from django.views.generic import ListView
 import random
 from django.contrib import messages
 
+import os
+
 from django.contrib.auth.decorators import login_required
 
 from django.contrib.auth import authenticate
 
-from .models import Words
+from .models import Words, TextWithWord
 from .form import WordsForm
 from django.http import JsonResponse
 
 #Translating app
 import deepl
 
-auth_key = "key"
+auth_key = os.environ.get("auth_key")
 translator = deepl.Translator(auth_key)
 
 def is_ajax(request):
@@ -127,3 +129,32 @@ class UserCadrdGame(View):
         else:
             messages.success(request, 'You mast to loggin!!')
             return redirect('/login/')
+
+class FrassesView(View):
+    def get(self,request):
+        words = Words.objects.all()
+        random_word = random.choice(words)
+        if is_ajax(request=request):
+            random_word = random.choice(words)
+            return JsonResponse({'word': random_word.definition}, status=200)
+        context = {
+            "word": random_word,
+        }
+        return render(request, 'words/frasses.html', context)
+
+    def post(self,request):
+        word = str(request.POST.get('word'))
+        word_result = get_object_or_404(Words,definition=word)
+        text = str(request.POST.get('text'))
+        test_text = []
+        for leter in text:
+            test_text.append(leter)
+        if len(test_text) < 25:
+            message = "too short text"
+            return JsonResponse({'data': message}, status=200)
+        else:
+            word_and_text = TextWithWord.objects.create(word=word_result, text=text, author=request.user)
+            word_and_text.save()
+
+            message = "You save this text"
+            return JsonResponse({'data': message}, status=200)

@@ -1,0 +1,27 @@
+{% extends 'words/base.html' %}
+
+{% block title %}Home{% endblock title %}
+
+
+{% block content %}
+    {%  load static %}
+    <div class="body-frasses">
+        <div class="glass">
+           <div class="frasses">
+               <form method="post" > {% csrf_token %}
+                   <h1>{{ word.definition }}</h1>
+                   <p>write text with this word</p>
+                   <textarea placeholder="write text" class="form-control" cols="1500" rows="3" >
+                   </textarea>
+                    </br>
+                      <button type="submit" class="btn btn-primary add-to-db">Save to your collection</button>
+                   <button type="button" id="add-new-card" class="btn btn-secondary add-card">try other words</button>
+               </form>
+           </div>
+        </div>
+    </div>
+{% endblock content %}
+  {% load static %}
+  {% block javascript %}
+     <script src="{% static 'frasses.js' %}"></script>
+  {% endblock javascript %}
