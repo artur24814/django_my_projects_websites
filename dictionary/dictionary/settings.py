@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'words.apps.WordsConfig',
     'accounts.apps.AccountsConfig',
+    'django_crontab',
 ]
 
 MIDDLEWARE = [
@@ -118,6 +119,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
+#cronjobs
+CRONJOBS = [
+    ('0 1 * * *', 'words.cron.random_word_for_home_view')
+]
+#static
 STATIC_URL = 'static/'
 
 STATICFILES_DIRS = [

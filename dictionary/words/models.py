@@ -14,6 +14,8 @@ class Words(models.Model):
 
     def get_absolute_url(self):
         return f'/update_word/{self.id}/'
+    def __str__(self):
+        return self.definition
 
 class TextWithWord(models.Model):
     word = models.ForeignKey('Words', on_delete=models.SET_NULL, null=True)
@@ -21,5 +23,8 @@ class TextWithWord(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     create = models.DateField(auto_now_add=True)
     updated = models.DateField(auto_now=True)
+
+class RandomWordForHomeView(models.Model):
+    word = models.ForeignKey('Words', on_delete=models.DO_NOTHING, null=True)
 
 

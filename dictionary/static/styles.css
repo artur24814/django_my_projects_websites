@@ -100,3 +100,18 @@ section {
     border-radius: 0.4rem;
     margin: 1rem 0.5rem;
 }
+.Day_Word {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.day_word_title {
+    font-size: 40px;
+    color: #544a4a;
+}
+.day_word_word {
+    font-size: 80px;
+    color: #e56969;
+}

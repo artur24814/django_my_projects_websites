@@ -7,6 +7,13 @@
     {%  load static %}
     <img src="{%  static 'pan.jpg' %}" height="300" width="1900">
     <hr>
+    <div class="Day_Word">
+    <p class="day_word_title">Your today word</p>
+        {% for word in random_word %}
+    <p class="day_word_word">{{ word.word }} - {{ word.word.word }}</p>
+    {% endfor %}
+    </div>
+    <hr>
     <center><h1 class="title"> Search word </h1></center>
 
     <div class="container">

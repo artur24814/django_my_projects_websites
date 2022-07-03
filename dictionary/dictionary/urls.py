@@ -34,7 +34,7 @@ urlpatterns = [
     path('update_word/<int:id>/', views.update_word),
     path('update_word/<int:id>/delete/', views.delete_word),
     path('user-card-game/', views.UserCadrdGame.as_view()),
-    path('frasses/', views.FrassesView.as_view())
+    path('frasses/', views.FrassesView.as_view()),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 # urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

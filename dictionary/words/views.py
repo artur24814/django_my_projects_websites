@@ -10,7 +10,7 @@ from django.contrib.auth.decorators import login_required
 
 from django.contrib.auth import authenticate
 
-from .models import Words, TextWithWord
+from .models import Words, TextWithWord, RandomWordForHomeView
 from .form import WordsForm
 from django.http import JsonResponse
 
@@ -23,6 +23,9 @@ translator = deepl.Translator(auth_key)
 def is_ajax(request):
     return request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest'
 
+
+
+
 class HomeView(View):
     def get(self, request):
         word = request.GET.get("word")
@@ -30,7 +33,10 @@ class HomeView(View):
             result = translator.translate_text(f"{word}", target_lang="EN-GB")
 
             return JsonResponse({'translated': str(result), 'word': word}, status=200)
-        return render(request, 'words/home.html', {})
+        word_for_home_view = RandomWordForHomeView.objects.all()
+        if len(word_for_home_view) == 0:
+            word_for_home_view = ['start word']
+        return render(request, 'words/home.html', {'random_word': word_for_home_view})
 
     def post(self, request):
         text = request.POST.get('text')
@@ -144,6 +150,7 @@ class FrassesView(View):
 
     def post(self,request):
         word = str(request.POST.get('word'))
+        print(word)
         word_result = get_object_or_404(Words,definition=word)
         text = str(request.POST.get('text'))
         test_text = []

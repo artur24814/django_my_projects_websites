@@ -28,7 +28,7 @@ class Home(View):
 
 class SearchView(View):
     def get(self,request):
-        return render(request, 'films/search,html')
+        return render(request, 'films/search.html')
 
     def post(self,request):
         question = request.POST.get('question')

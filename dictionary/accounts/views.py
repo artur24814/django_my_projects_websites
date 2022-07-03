@@ -36,6 +36,10 @@ class LoginView(View):
             user = form.get_user()
             login(request, user)
             return redirect('/')
+        context = {
+            'form': form
+        }
+        return render(request, 'accounts/login.html', context)
 
 class LogoutView(View):
     def get(self, request):
