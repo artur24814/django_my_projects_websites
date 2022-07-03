@@ -18,10 +18,12 @@ After the date on which the tickets were booked they will be deleted from the da
 <li><srtong><h1>DICTIONARY</h1></srtong></li>
 <p>Website for looking translation of words and create your self vocabulary and train your knowledge in a card game</p>
   
-<p>On the main page, you can translate the words and dynamically receiving the result you can add to the dictionary this translation of what we need.</p>
+<p>On the main page you can see the word of the day which will automatically change at 00:01. 
+You can translate the words and dynamically receiving the result you can add to the dictionary this translation if you need.</p>
   <p align="center">
 
-  <img src="https://user-images.githubusercontent.com/97242088/172056159-90f84c22-ceb4-478a-adf7-0eeca67aa9fe.png" width="500" >
+
+  <img src="https://user-images.githubusercontent.com/97242088/177044720-702e2ca3-4e55-4ea3-b3bf-16eff5530954.png" width="500" >
 
 </p>
 
@@ -43,7 +45,10 @@ dictionary more than 16 words). The game is that on one side of the card you hav
   <img src="https://user-images.githubusercontent.com/97242088/172049037-f39daae3-32ca-401e-9029-2b2410f36376.png" width="500" >
 
 </p>
+<p>And that's not all, you can practice in inventing  sentences to words (it should be at least 25 letters)  and if you are satisfied with your creativity, you can share it with other users
+</p>
   </p>
   <hr>
  </ul>
+
 
