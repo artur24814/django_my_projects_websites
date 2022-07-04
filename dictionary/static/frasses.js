@@ -38,7 +38,7 @@ $(document).ready(function () {$.ajaxSetup({
                    <p>write text with this word</p>
                    <textarea placeholder="write text" class="form-control" cols="1500" rows="3" ></textarea>
                     </br>
-                      <button type="submit" class="btn btn-primary add-to-db">Save to your collection</button>
+                      <button type="submit" class="btn btn-primary add-to-db">Share your thought to another users</button>
                </form>
            </div>`)
                 $('.add-to-db').on('click',function (e) {
@@ -79,9 +79,9 @@ $(document).ready(function () {$.ajaxSetup({
             dataType: 'json',
             success(response){
                 alert(response.data)
-                if (response.data === "You save this text") {
-                    $(this).remove()
-                }
+                // if (response.data === "You save this text") {
+                //     $(this).remove()
+                // }
             }
         })
     })

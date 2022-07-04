@@ -56,6 +56,9 @@ class Dictionary(ListView):
     queryset = Words.objects.all().order_by('alphabet')
     template_name = 'words/dictionary.html'
 
+class BlogView(ListView):
+    queryset = TextWithWord.objects.all().order_by('-create')
+    template_name = 'words/blog.html'
 
 class CadrdGame(View):
     def get(self, request):

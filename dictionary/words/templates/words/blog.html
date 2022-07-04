@@ -1,0 +1,16 @@
+{% extends 'words/base.html' %}
+
+{% block title %}Home{% endblock title %}
+
+{% block content %}
+     <div class="body-blog">
+         <div class="content-blog">
+             {% for instance in object_list %}
+             <div class="card-blog">
+                 <p style="font-size: 40px">{{ instance.word }}</p>
+                 <p style="font-size: 20px;font-family: cursive ">{{ instance.text }}</p>
+             </div>
+             {% endfor %}
+         </div>
+     </div>
+{% endblock content %}

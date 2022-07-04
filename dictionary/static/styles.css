@@ -76,14 +76,14 @@ section {
 }
 .glass {
     background: white;
-    min-height: 80vh;
-    width: 60%;
+    min-height: 60vh;
+    width: 80%;
     background: linear-gradient(to right bottom,
     rgba(255,255,255,0.7),
     rgba(255,255,255,0.3));
     border-radius: 1rem;
     backdrop-filter: blur(2rem);
-    padding: 10px;
+    padding: 40px;
     justify-content: center;
     align-items: center;
     z-index: 3;
@@ -96,9 +96,13 @@ section {
     padding: 2rem;
     align-items: center;
     text-align: center;
-    justify-content: space-evenly;
+    /*justify-content: space-evenly;*/
     border-radius: 0.4rem;
     margin: 1rem 0.5rem;
+}
+.post {
+    margin: 30px;
+    padding: 10px;
 }
 .Day_Word {
     display: flex;
@@ -114,4 +118,34 @@ section {
 .day_word_word {
     font-size: 80px;
     color: #e56969;
+}
+.login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.body-blog {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(21,19,55);
+    background: linear-gradient(27deg, rgb(138, 138, 157) 0%, rgba(105,148,83,1) 48%, rgba(162,186,191,1) 100%);
+}
+.content-blog {
+    margin: 100px;
+    padding: 50px;
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 2px );
+    -webkit-backdrop-filter: blur( 2px );
+}
+.card-blog {
+    padding: 30px;
+    margin: 30px;
+    background: rgba( 255, 255, 255, 0.3 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 2px );
+    -webkit-backdrop-filter: blur( 2px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
 }

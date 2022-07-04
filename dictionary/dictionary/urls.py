@@ -30,6 +30,7 @@ urlpatterns = [
     path('register/', RegisterView.as_view()),
     path('dictionary/', views.Dictionary.as_view()),
     path('card-game/', views.CadrdGame.as_view()),
+    path('blog/', views.BlogView.as_view()),
     path('user-dictionary/', views.UserDictionary.as_view()),
     path('update_word/<int:id>/', views.update_word),
     path('update_word/<int:id>/delete/', views.delete_word),

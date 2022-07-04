@@ -4,9 +4,11 @@
 
 
 {% block content %}
+
     {%  load static %}
     <img src="{% static 'pan.jpg' %}" height="300" width="1900">
     <hr>
+    <div class="login">
     {% if error %}
     {{ error }}
     {% endif %}
@@ -19,5 +21,5 @@
     <h3>{{ user.username }}, you loggin</h3>
         <p>Please <a href="/logout/"><button class="btn btn-danger">Logout</button></a> </p>
     {% endif %}
-
+    </div>
 {% endblock content %}
