@@ -23,19 +23,19 @@ from words import views
 from accounts.views import RegisterView, LoginView, LogoutView
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', views.HomeView.as_view()),
-    path('login/', LoginView.as_view()),
-    path('logout/', LogoutView.as_view()),
-    path('register/', RegisterView.as_view()),
-    path('dictionary/', views.Dictionary.as_view()),
-    path('card-game/', views.CadrdGame.as_view()),
-    path('blog/', views.BlogView.as_view()),
-    path('user-dictionary/', views.UserDictionary.as_view()),
-    path('update_word/<int:id>/', views.update_word),
-    path('update_word/<int:id>/delete/', views.delete_word),
-    path('user-card-game/', views.UserCadrdGame.as_view()),
-    path('frasses/', views.FrassesView.as_view()),
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+                  path('admin/', admin.site.urls),
+                  path('', views.HomeView.as_view()),
+                  path('login/', LoginView.as_view()),
+                  path('logout/', LogoutView.as_view()),
+                  path('register/', RegisterView.as_view()),
+                  path('dictionary/', views.Dictionary.as_view()),
+                  path('card-game/', views.CadrdGame.as_view()),
+                  path('blog/', views.BlogView.as_view()),
+                  path('user-dictionary/', views.UserDictionary.as_view()),
+                  path('update_word/<int:id>/', views.update_word),
+                  path('update_word/<int:id>/delete/', views.delete_word),
+                  path('user-card-game/', views.UserCadrdGame.as_view()),
+                  path('frasses/', views.FrassesView.as_view()),
+              ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 # urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

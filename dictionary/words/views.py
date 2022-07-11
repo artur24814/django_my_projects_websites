@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponse, get_object_or_404,redirect
+from django.shortcuts import render, HttpResponse, get_object_or_404, redirect
 from django.views import View
 from django.views.generic import ListView
 import random
@@ -14,16 +14,15 @@ from .models import Words, TextWithWord, RandomWordForHomeView
 from .form import WordsForm
 from django.http import JsonResponse
 
-#Translating app
+# Translating app
 import deepl
 
 auth_key = os.environ.get("auth_key")
 translator = deepl.Translator(auth_key)
 
+
 def is_ajax(request):
     return request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest'
-
-
 
 
 class HomeView(View):
@@ -46,19 +45,25 @@ class HomeView(View):
             message = 'this word alredy exist at dictionary'
             return JsonResponse({'data': message}, status=200)
         else:
+            if request.user.is_anonymous:
+                message = "to save word you must be login in !!!"
+                return JsonResponse({'data': message}, status=200)
             words = Words.objects.create(word=list[0], definition=list[1], author=request.user)
             words.save()
 
             message = f"{text} is added to dictonary !!!"
             return JsonResponse({'data': message}, status=200)
 
+
 class Dictionary(ListView):
     queryset = Words.objects.all().order_by('alphabet')
     template_name = 'words/dictionary.html'
 
+
 class BlogView(ListView):
     queryset = TextWithWord.objects.all().order_by('-create')
     template_name = 'words/blog.html'
+
 
 class CadrdGame(View):
     def get(self, request):
@@ -70,7 +75,7 @@ class CadrdGame(View):
             resultList = []
             i = 0
             while len(resultList) < 16:
-                index = words[random.randint(0, (len(words)-1))]
+                index = words[random.randint(0, (len(words) - 1))]
                 if index not in resultList:
                     resultList.append(index)
             j = 1
@@ -80,13 +85,15 @@ class CadrdGame(View):
                 j += 1
             return render(request, 'words/cardGame.html', context)
 
+
 class UserDictionary(View):
-    def get(self,request):
+    def get(self, request):
         queryset = Words.objects.filter(author=request.user).order_by('alphabet')
         context = {
             'object_list': queryset
         }
         return render(request, 'words/User_dictionary.html', context)
+
 
 @login_required
 def update_word(request, id):
@@ -107,9 +114,10 @@ def update_word(request, id):
     }
     return render(request, 'words/update-word.html', context)
 
+
 @login_required
 def delete_word(request, id):
-    word =get_object_or_404(Words, pk=id, author=request.user)
+    word = get_object_or_404(Words, pk=id, author=request.user)
     word.delete()
     messages.success(request, 'Word was delited from dictionary!')
     return redirect('/user-dictionary/')
@@ -126,7 +134,7 @@ class UserCadrdGame(View):
                 resultList = []
                 i = 0
                 while len(resultList) < 16:
-                    index = words[random.randint(0, (len(words)-1))]
+                    index = words[random.randint(0, (len(words) - 1))]
                     if index not in resultList:
                         resultList.append(index)
                 j = 1
@@ -139,8 +147,9 @@ class UserCadrdGame(View):
             messages.success(request, 'You mast to loggin!!')
             return redirect('/login/')
 
+
 class FrassesView(View):
-    def get(self,request):
+    def get(self, request):
         words = Words.objects.all()
         random_word = random.choice(words)
         if is_ajax(request=request):
@@ -151,10 +160,10 @@ class FrassesView(View):
         }
         return render(request, 'words/frasses.html', context)
 
-    def post(self,request):
+    def post(self, request):
         word = str(request.POST.get('word'))
         print(word)
-        word_result = get_object_or_404(Words,definition=word)
+        word_result = get_object_or_404(Words, definition=word)
         text = str(request.POST.get('text'))
         test_text = []
         for leter in text:

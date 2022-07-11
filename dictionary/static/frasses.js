@@ -16,10 +16,12 @@ function getCookie(name) {
     }
     return cookieValue;
 }
+
 const csrftoken = getCookie('csrftoken');
 
-$(document).ready(function () {$.ajaxSetup({
-        beforeSend: function(xhr, settings) {
+$(document).ready(function () {
+    $.ajaxSetup({
+        beforeSend: function (xhr, settings) {
             xhr.setRequestHeader("X-CSRFToken", csrftoken);
         }
     });
@@ -41,30 +43,30 @@ $(document).ready(function () {$.ajaxSetup({
                       <button type="submit" class="btn btn-primary add-to-db">Share your thought to another users</button>
                </form>
            </div>`)
-                $('.add-to-db').on('click',function (e) {
-                     e.preventDefault()
-        $.ajax({
-            url: '',
-            type: 'post',
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            },
-            data: {
-                word: $(this).parent().find('h1').text(),
-                text: $(this).parent().find('.form-control').val(),
-            },
-            dataType: 'json',
-            success(response){
-                alert(response.data)
-            }
-        })
-    })
+                $('.add-to-db').on('click', function (e) {
+                    e.preventDefault()
+                    $.ajax({
+                        url: '',
+                        type: 'post',
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        },
+                        data: {
+                            word: $(this).parent().find('h1').text(),
+                            text: $(this).parent().find('.form-control').val(),
+                        },
+                        dataType: 'json',
+                        success(response) {
+                            alert(response.data)
+                        }
+                    })
+                })
             }
 
 
         })
     })
-    $('.add-to-db').on('click',function (e) {
+    $('.add-to-db').on('click', function (e) {
         e.preventDefault()
         $.ajax({
             url: '',
@@ -77,7 +79,7 @@ $(document).ready(function () {$.ajaxSetup({
                 text: $(this).parent().find('.form-control').val(),
             },
             dataType: 'json',
-            success(response){
+            success(response) {
                 alert(response.data)
                 // if (response.data === "You save this text") {
                 //     $(this).remove()
