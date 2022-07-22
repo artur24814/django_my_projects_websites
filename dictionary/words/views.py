@@ -18,8 +18,8 @@ from django.http import JsonResponse
 # Translating app
 import deepl
 
-auth_key = os.environ.get("auth_key")
-
+# auth_key = os.environ.get("auth_key")
+auth_key = "5c956ed3-f892-e7ad-470d-d8010548f352:fx"
 translator = deepl.Translator(auth_key)
 
 
