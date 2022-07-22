@@ -15,7 +15,6 @@ $(document).ready(function () {
                 $(".btn")
                 $('#translated').append('<div class="card mb-1"><button type="button" class="btn-close" aria-label="Close"></button><div class="card-body">' + response.word + "---" + response.translated + '</div></div>')
                 $('.btn-close').on('click', function(event) {
-                    // alert('asdf')
                     $(this).parent().remove();
                 })
             }
@@ -32,8 +31,7 @@ $(document).ready(function () {
             },
             dataType: 'json',
             success: function (response) {
-                // let words = $(this).innerText = response.data;
-                // words.css('text-decoration line-thorough').hide().slideDown();
+
                 alert(response.data)
                 $(this).parent().css('background-color', 'green');
             }

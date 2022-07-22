@@ -8,6 +8,9 @@ from django.contrib.auth.models import User
 
 
 class RegisterView(View):
+    """
+    view for creating new user
+    """
     def get(self, request):
         form = UserCreationForm()
         context = {
@@ -20,12 +23,15 @@ class RegisterView(View):
         if form.is_valid():
             form.save()
             messages.success(request, 'Account created successfully')
-            return redirect('/login')
+            return redirect('/login/')
         else:
             return render(request, 'accounts/register.html', {'form': form})
 
 
 class LoginView(View):
+    """
+    login view
+    """
     def get(self, request):
         form = AuthenticationForm(request)
         context = {
@@ -46,6 +52,9 @@ class LoginView(View):
 
 
 class LogoutView(View):
+    """
+    logout view
+    """
     def get(self, request):
         return render(request, 'accounts/logout.html')
 

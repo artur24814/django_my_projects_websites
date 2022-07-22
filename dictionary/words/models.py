@@ -23,6 +23,20 @@ class TextWithWord(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     create = models.DateField(auto_now_add=True)
     updated = models.DateField(auto_now=True)
+    no_of_likes = models.IntegerField(default=0)
+
+class LikeText(models.Model):
+    text = models.ForeignKey('TextWithWord', on_delete=models.CASCADE)
+    username = models.CharField(max_length=64)
+
+class CommentsText(models.Model):
+    text = models.CharField(max_length=350)
+    post = models.ForeignKey('TextWithWord', on_delete=models.CASCADE)
+    author = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+
+class CommentsToComents(models.Model):
+    comment = models.ForeignKey('CommentsText', on_delete=models.CASCADE)
+    author = models.CharField(max_length=64)
 
 class RandomWordForHomeView(models.Model):
     word = models.ForeignKey('Words', on_delete=models.DO_NOTHING, null=True)

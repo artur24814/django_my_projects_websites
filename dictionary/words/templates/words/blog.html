@@ -5,12 +5,38 @@
 {% block content %}
      <div class="body-blog">
          <div class="content-blog">
-             {% for instance in object_list %}
-             <div class="card-blog">
-                 <p style="font-size: 40px">{{ instance.word }}</p>
-                 <p style="font-size: 20px;font-family: cursive ">{{ instance.text }}</p>
-             </div>
+             {% for instance in posts %}
+                 <div class="general-card">
+                   <div class="card-blog">
+                     <p style="font-size: 40px">{{ instance.word }}</p>
+                     <p style="font-size: 20px;font-family: cursive ">{{ instance.text }}</p>
+                   </div>
+                   <div class="body-card-blog">
+                   <a href="{% url 'create-like' instance.id %}"><span class="comment" style="font-size: 30px">&#128077;</span></a>{{ instance.no_of_likes }}
+                       <span style="font-size: 30px; display: flex; justify-content: flex-end">💬</span>
+                              <form action="{% url 'create-comment' instance.id %}" class="row g-3"method="post">{% csrf_token %}
+                                  <div class="col-auto">
+                                      <input type="text" name="text" class="form-control" >
+                                  </div>
+                                  <div class="col-auto">
+                                      <button type="submit" class="btn btn-secondary mb-3">Leave your comment</button>
+                                  </div>
+
+                              </form>
+                       <div class="comments">
+                           {% for comment in comments %}
+                             {% if comment.post.id == instance.id %}
+                                 {{ comment.author }}
+                                 <div class="comment-body">
+                                  - {{ comment.text }}
+                                 </div>
+                             {% endif %}
+                           {% endfor %}
+                       </div>
+                   </div>
+                 </div>
              {% endfor %}
          </div>
      </div>
 {% endblock content %}
+{% load static %}

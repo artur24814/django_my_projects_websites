@@ -24,18 +24,24 @@ from accounts.views import RegisterView, LoginView, LogoutView
 
 urlpatterns = [
                   path('admin/', admin.site.urls),
-                  path('', views.HomeView.as_view()),
-                  path('login/', LoginView.as_view()),
-                  path('logout/', LogoutView.as_view()),
-                  path('register/', RegisterView.as_view()),
-                  path('dictionary/', views.Dictionary.as_view()),
-                  path('card-game/', views.CadrdGame.as_view()),
-                  path('blog/', views.BlogView.as_view()),
-                  path('user-dictionary/', views.UserDictionary.as_view()),
-                  path('update_word/<int:id>/', views.update_word),
-                  path('update_word/<int:id>/delete/', views.delete_word),
-                  path('user-card-game/', views.UserCadrdGame.as_view()),
-                  path('frasses/', views.FrassesView.as_view()),
+                  #accounts view
+                  path('login/', LoginView.as_view(), name='login'),
+                  path('logout/', LogoutView.as_view(), name='logout'),
+                  path('register/', RegisterView.as_view(), name='create-user'),
+                  #dictionary view
+                  path('', views.HomeView.as_view(), name='home-view'),
+                  path('dictionary/', views.Dictionary.as_view(), name='global-dictionary'),
+                  path('card-game/', views.CardGame.as_view(), name='global-card-game'),
+                  path('blog/', views.BlogView.as_view(), name='blog'),
+                  path('like-post/<int:id_post>/', views.CreateLike.as_view(), name='create-like'),
+                  path('comment/<int:id_post>/', views.CreateComment.as_view(), name='create-comment'),
+                  #CRUD for user dictionary
+                  path('user-dictionary/', views.UserDictionary.as_view(), name='user-dictionary'),
+                  path('update_word/<int:id>/', views.update_word, name='update-word'),
+                  path('update_word/<int:id>/delete/', views.delete_word, name='delete-word'),
+                  #for user login in view
+                  path('user-card-game/', views.UserCardGame.as_view(), name='user-card-game'),
+                  path('frasses/', views.FrassesView.as_view(), name='frasses'),
               ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 # urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
