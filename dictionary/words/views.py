@@ -19,12 +19,14 @@ from django.http import JsonResponse
 import deepl
 
 auth_key = os.environ.get("auth_key")
-# auth_key = "5c956ed3-f892-e7ad-470d-d8010548f352:fx"
 translator = deepl.Translator(auth_key)
 
 
 def is_ajax(request):
     return request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest'
+
+import datetime
+x=datetime.datetime.now()
 
 
 class HomeView(View):
@@ -45,8 +47,75 @@ class HomeView(View):
         word_for_home_view = RandomWordForHomeView.objects.all()
         #if word didn't exist
         if len(word_for_home_view) == 0:
-            word_for_home_view = ['start word']
-        return render(request, 'words/home.html', {'random_word': word_for_home_view})
+            list = Words.objects.all()
+            random_word = random.choice(list)
+            RandomWordForHomeView.objects.create(word=random_word)
+            return render(request, 'words/home.html', {'random_word': word_for_home_view})
+        bad_words = RandomWordForHomeView.objects.filter(create__lt=x.strftime("%Y-%m-%d"))
+        if bad_words:
+            bad_words.delete()
+            list = Words.objects.all()
+            random_word = random.choice(list)
+            word_for_home_view = RandomWordForHomeView.objects.create(word=random_word)
+            return render(request, 'words/home.html', {'random_word': word_for_home_view})
+        else:
+            word_for_home_view = RandomWordForHomeView.objects.all().first()
+            return render(request, 'words/home.html', {'random_word': word_for_home_view})
+
+    def post(self, request):
+        # if user not log in
+        if request.user.is_anonymous:
+            message = "to save word you must be login in !!!"
+            return JsonResponse({'data': message}, status=200)
+        #separate word and definition
+        text = request.POST.get('text')
+        list = text.split('---')
+        existword = Words.objects.filter(word=list[0])
+        #check if word alredy exist
+        if existword:
+            message = 'this word alredy exist at dictionary'
+            return JsonResponse({'data': message}, status=200)
+        else:
+            #when everything ok
+            words = Words.objects.create(word=list[0], definition=list[1], author=request.user)
+            words.save()
+
+            message = f"{text} is added to dictonary !!!"
+            return JsonResponse({'data': message}, status=200)
+
+
+class HomeViewEn(View):
+    """
+    view home page for search word
+    """
+    def get(self, request):
+        word = request.GET.get("word")
+        #check lengh text which write user
+        if len(str(word)) > 100:
+            #if text too long
+            return redirect('/')
+        if is_ajax(request=request):
+            result = translator.translate_text(f"{word}", target_lang="PL")
+
+            return JsonResponse({'translated': word, 'word': str(result)}, status=200)
+        #Day word in maine page
+        word_for_home_view = RandomWordForHomeView.objects.all()
+        #if word didn't exist
+        if len(word_for_home_view) == 0:
+            list = Words.objects.all()
+            random_word = random.choice(list)
+            RandomWordForHomeView.objects.create(word=random_word)
+            return render(request, 'words/home_en.html', {'random_word': word_for_home_view})
+        bad_words = RandomWordForHomeView.objects.filter(create__lt=x.strftime("%Y-%m-%d"))
+        if bad_words:
+            bad_words.delete()
+            list = Words.objects.all()
+            random_word = random.choice(list)
+            word_for_home_view = RandomWordForHomeView.objects.create(word=random_word)
+            return render(request, 'words/home.html', {'random_word': word_for_home_view})
+        else:
+            word_for_home_view = RandomWordForHomeView.objects.all().first()
+            return render(request, 'words/home_en.html', {'random_word': word_for_home_view})
 
     def post(self, request):
         # if user not log in

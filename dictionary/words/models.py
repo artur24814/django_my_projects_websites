@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+
 class Words(models.Model):
     word = models.CharField(max_length=260)
     definition = models.CharField(max_length=260)
@@ -40,5 +41,6 @@ class CommentsToComents(models.Model):
 
 class RandomWordForHomeView(models.Model):
     word = models.ForeignKey('Words', on_delete=models.DO_NOTHING, null=True)
+    create = models.DateField(auto_now_add=True,null=True)
 
 

@@ -3,7 +3,7 @@ $(document).ready(function () {
 
     const csrf = $("input[name=csrfmiddlewaretoken]").val();
 
-    $(".btn").click(function (){
+    $("#pl-en").click(function (){
         const text = $("#text").val();
         $.ajax({
             url: '',

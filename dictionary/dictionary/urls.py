@@ -30,6 +30,7 @@ urlpatterns = [
                   path('register/', RegisterView.as_view(), name='create-user'),
                   #dictionary view
                   path('', views.HomeView.as_view(), name='home-view'),
+                  path('pl/', views.HomeViewEn.as_view(), name='home-view-pl'),
                   path('dictionary/', views.Dictionary.as_view(), name='global-dictionary'),
                   path('card-game/', views.CardGame.as_view(), name='global-card-game'),
                   path('blog/', views.BlogView.as_view(), name='blog'),
